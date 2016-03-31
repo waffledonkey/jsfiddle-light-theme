@@ -1,8 +1,3 @@
-JSFiddle Light Theme for Brackets
-============================
-
-Inspired by [JSFiddle](https://jsfiddle.net)
-
 # JSFiddle Light Theme for Brackets
 
 Light color theme inspired by [JSFiddle](https://jsfiddle.net)
