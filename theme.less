@@ -1,0 +1,170 @@
+/* Define variables */
+
+@color00: #fff;
+@color01: #000;
+@color02: #39464e;
+@color03: #4a4543;
+@color04: #a0a1a7;
+@color05: #b9b6d2;
+@color06: #bec8cd;
+@color07: #d7d4f0;
+@color08: #e6e9eb;
+@color09: #f3f5f6;
+@color10: #ed5c65;
+@color11: #f18c16;
+@color12: #4695ee;
+@color13: #249d7f;
+@color14: #3511ad;
+@color15: #a853cc;
+
+/* Begin Theme */
+.CodeMirror-scroll {
+    // Background color of main window
+    background-color: @color09;
+    // Color of otherwise un-styled text
+    color: @color02;
+    font-size: 12px;
+    line-height: 1.55em;
+}
+
+.CodeMirror-gutters {
+    background-color: rgba(0, 0, 0, .01);
+    min-width: 2em;
+    height: 100%;
+    border-right: solid 1px @color08;
+}
+
+.CodeMirror-linenumber {
+    // Line numbers in the gutter
+    color: @color06;
+    font-size: 10px;
+    height: 20px;
+    line-height: 20px;
+    padding: 0 8px 0 5px;
+    text-shadow: 0 0 1px @color00;
+}
+
+.CodeMirror-selected {
+    // Highlighed text
+    background-color: @color07;
+}
+
+.CodeMirror-cursor {
+    // The cursor
+    border-left: 1px solid @color02;
+}
+
+.CodeMirror-nonmatchingbracket,
+.CodeMirror-matchingbracket {
+    background: @color10;
+    color: @color00 !important;
+    border-radius: 2px;
+    padding: 1px 0;
+}
+
+.CodeMirror-foldgutter-open,
+.CodeMirror-foldgutter-folded {
+    font-family: sans-serif;
+    font-size: .75em;
+    margin-top: 3px;
+}
+
+.CodeMirror-foldgutter-open:after {
+    // Those little arrows in the gutter
+    color: @color05;
+}
+
+.CodeMirror-foldgutter-folded:after {
+    // The arrows after you collapse code
+    color: @color03;
+}
+
+.CodeMirror.over-gutter,
+.CodeMirror-activeline {
+    .CodeMirror-foldgutter-open:after {
+        // Arrows when hovering on the gutter
+        color: @color05;
+    }
+}
+
+.CodeMirror-foldmarker {
+    // The [...] marking collapsed code
+    border-color: @color03;
+    background-color: @color03;
+    color: @color00;
+}
+
+.cm-comment {
+    color: @color04;
+}
+
+.cm-attribute,
+.cm-builtin,
+.cm-def,
+/*
+    it seems the CodeMirror that backs jsfiddle.net is smarter than the one that backs Brackets.  In nodejs, for example
+    if you do something like const express = require('express') the first instance of 'express' is a cm-def in jsfiddle,
+    but in Brackets it's a cm-variable -- the same as the 'require'.  This means it's very difficult to style them
+    separately without some pretty ambitious (and optimistic) selectors.
+*/
+.cm-keyword + .cm-m-javascript + .cm-variable,
+.cm-m-javascript.cm-variable:nth-of-type(2),
+.cm-dk-whitespace-leading-space + .cm-variable,
+.cm-qualifier {
+    color: @color11;
+}
+.cm-tag,
+.cm-variable,
+.cm-variable-2,
+.cm-variable-3 {
+    color: @color12;
+}
+.cm-property {
+    color: @color02;
+}
+.cm-string {
+    color: @color13;
+}
+.cm-number,
+.cm-string-2 {
+    color: @color10;
+}
+.cm-tag.cm-bracket {
+    color: @color01;
+}
+.cm-atom {
+    color: @color14;
+}
+.cm-keyword,
+.cm-quote {
+    color: @color15;
+}
+.CodeMirror-activeline-background {
+    background-color: @color07;
+}
+.CodeMirror-focused .CodeMirror-activeline .CodeMirror-gutter-elt {
+    background: @color05;
+    color: @color00;
+    text-shadow: 0 0 1px @color03;
+}
+
+/* mostly useless, but what the hell? */
+.cm-atom,
+.cm-attribute,
+.cm-builtin,
+.cm-comment,
+.cm-def,
+.cm-keyword,
+.cm-number,
+.cm-property,
+.cm-qualifier,
+.cm-quote,
+.cm-tag,
+.cm-variable,
+.cm-variable-2,
+.cm-variable-3,
+.cm-string,
+.cm-string-2 {
+    text-shadow: 0 1px 1px @color00;
+}
+/* End Theme */
