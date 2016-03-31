@@ -14,7 +14,7 @@
 @color11: #f18c16;
 @color12: #4695ee;
 @color13: #249d7f;
-@color14: #3511ad;
+@color14: #1117AD;
 @color15: #a853cc;
 
 /* Begin Theme */
@@ -52,26 +52,110 @@
 .CodeMirror-cursor {
     // The cursor
     border-left: 1px solid @color02;
+    height: 1em;
+}
+
+
+.cm-m-xml.CodeMirror-matchingtag {
+    background: transparent;
+    padding: 1px 0;
+}
+
+
+/* allow for styling javascript template delimiters (.cm-tag) this will also style html tags, but we'll undo that */
+.cm-m-xml.cm-tag {
+    color: @color01;
+    font-weight: bold;
+}
+
+/* javascript template variables */
+.cm-m-xml.cm-tag ~ .cm-m-xml.cm-variable {
+    color: @color14;
+    font-style: italic;
+}
+
+/* allow for styling HTML tags and javacsript template keywords (.cm-tag in html and .cm-keyword for js templating) */
+.cm-m-xml.cm-tag,
+.cm-m-xml.cm-keyword {
+    text-shadow: 0 0 1px @color00;
+}
+
+.cm-m-xml.cm-keyword {
+    color: @color10;
+    font-weight: bold;
+}
+
+/* style tags within html brackets */
+.cm-m-xml.cm-bracket + .cm-m-xml.cm-tag {
+    color: @color12;
+    font-weight: normal;
+}
+
+
+/* style html brackets '<' & '>' [/] */
+.cm-m-xml.cm-bracket {
+    color: lighten(@color12, 10%) !important;
+}
+
+/* style html attributes and javascript template variables as italicized */
+.cm-m-xml.cm-attribute,
+.cm-m-xml.cm-variable {
+    font-style: italic;
 }
 
 .CodeMirror-nonmatchingbracket,
+.CodeMirror-matchingbracket,
+.cm-m-xml.cm-tag.CodeMirror-matchingtag {
+    color: @color00 !important;
+    padding: 1px 0;
+    text-shadow: 0 0 2px rgba(0, 0, 0, .3) !important;
+}
+
+.cm-m-xml.cm-string.CodeMirror-matchingtag,
+.cm-m-xml.cm-attribute.CodeMirror-matchingtag,
+.cm-m-xml.CodeMirror-matchingtag {
+    background: lighten(@color09, 1%);
+}
+.cm-m-xml.cm-tag {
+    border-right: 1px solid transparent;
+}
+.cm-m-xml.cm-tag.CodeMirror-matchingtag {
+    background: @color12;
+    font-weight: normal;
+    text-shadow: none;
+}
+/*
+.cm-m-xml.cm-attribute.CodeMirror-matchingtag {
+    color: darken(@color11, 5%);
+}
+.cm-m-xml.cm-string.CodeMirror-matchingtag {
+    color: darken(@color13, 5%);
+}
+*/
+.CodeMirror-nonmatchingbracket,
 .CodeMirror-matchingbracket {
     background: @color10;
-    color: @color00 !important;
     border-radius: 2px;
-    padding: 1px 0;
+    text-shadow: 0 0 1px @color01;
 }
+
+
 
 .CodeMirror-foldgutter-open,
 .CodeMirror-foldgutter-folded {
     font-family: sans-serif;
     font-size: .75em;
     margin-top: 3px;
+    text-shadow: none;
 }
 
 .CodeMirror-foldgutter-open:after {
     // Those little arrows in the gutter
     color: @color05;
+}
+
+.CodeMirror-activeline .CodeMirror-foldgutter-open:after {
+    color: darken(@color04, 15%) !important;
 }
 
 .CodeMirror-foldgutter-folded:after {
@@ -96,6 +180,14 @@
 
 .cm-comment {
     color: @color04;
+}
+.cm-m-xml.cm-comment {
+    color: lighten(@color04, 10%);
+}
+.CodeMirror-activeline {
+    .cm-m-xml.cm-comment {
+        color: @color04;
+    }
 }
 
 .cm-attribute,
@@ -167,4 +259,5 @@
 .cm-string-2 {
     text-shadow: 0 1px 1px @color00;
 }
+
 /* End Theme */
